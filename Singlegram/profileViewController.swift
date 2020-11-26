@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 03.11.2020.
 //
@@ -8,26 +8,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var collectionView1: UICollectionView!
-    var selectedIndex:IndexPath?
+    
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var avatarImageView: UIImageView!
+    
+    
+    
     var userGallery = Gallery.importPosts()
+    
+    var selectedIndex:IndexPath?
+    
     let spacing = 2
-    var cellsInLine = 1
+    var cellsInLine = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         avatarImageView.layer.borderWidth = 3.0
         avatarImageView.layer.borderColor = UIColor.gray.cgColor
-        
-        collectionView1.dataSource = self
-        collectionView1.delegate = self
-        
-        
+        collectionView.dataSource = self
+        collectionView.delegate = self
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "feed" {
-            if let viewController = segue.destination as? UserFeedTableViewController,let cell = sender as? CollectionViewCell, let index = collectionView1.indexPath(for: cell) {
+            
+            if let viewController = segue.destination as? UserFeedTableViewController,let cell = sender as? CollectionViewCell, let index = collectionView.indexPath(for: cell) {
                 viewController.index = index
                 
             }
@@ -35,7 +41,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func selectViewType(_ sender: UISegmentedControl) {
-        collectionView1.reloadData()
+        collectionView.reloadData()
         switch sender.selectedSegmentIndex {
         case 0:
             cellsInLine = 1
@@ -48,14 +54,15 @@ class ViewController: UIViewController {
         default:
             cellsInLine = 1
             
-        }    }
+        }
+    }
 }
+
 
 extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userGallery.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,7 +76,4 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource,
         let cellHight = cellWidth
         return CGSize(width: cellWidth, height: cellHight)
     }
-    //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        selectedIndex = indexPath
-    //    }
 }

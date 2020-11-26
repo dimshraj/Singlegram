@@ -1,6 +1,6 @@
 //
 //  UserFeedTableViewCell.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 08.11.2020.
 //

@@ -1,6 +1,6 @@
 //
 //  Gallery.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 05.11.2020.
 //

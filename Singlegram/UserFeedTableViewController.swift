@@ -1,6 +1,6 @@
 //
 //  UserFeedTableViewController.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 08.11.2020.
 //
@@ -10,11 +10,13 @@ import UIKit
 class UserFeedTableViewController: UIViewController {
     @IBOutlet var tableViewFeed: UITableView!
     var userGalleryfeed = Gallery.importPosts()
+    
     var index:IndexPath = [0, 0] {
         didSet {
             print(index)
         }
     }
+    
     let defaultInfo = "Show info >"
 
     override func viewDidLoad() {
@@ -26,9 +28,10 @@ class UserFeedTableViewController: UIViewController {
     }
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            tableViewFeed.scrollToRow(at: index, at: .middle, animated: false)
+            tableViewFeed.scrollToRow(at: index, at: .middle, animated: false) // not work ;(
             print(index)
         }
+    
     // MARK: - Table view data source
     
 }

@@ -1,6 +1,6 @@
 //
 //  settingsViewController.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 03.11.2020.
 //

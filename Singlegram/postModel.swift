@@ -1,6 +1,6 @@
 //
 //  postModel.swift
-//  instCopy
+//  Singlegram
 //
 //  Created by Dmitriy Shrayber on 10.11.2020.
 //
